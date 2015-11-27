@@ -27,7 +27,12 @@ int floyd(int pat[], int x0, int size) {
     }
 
     printf("lam mu %d %d\n", lam, mu);   
-    return lam;
+    printf("next prediction %d\n", pat[size-lam]);
+    if (lam <= size/2)
+        return pat[size-lam];
+    else
+        return NAN;
+
 } 
 
 // Recognize a pattern stored from newest to oldest and output a prediction
@@ -52,5 +57,5 @@ int main() {
     int array[11] = {2, 0, 6, 3, 1, 6, 3, 1, 6, 3, 1 };
     int *pat = &array;
     //recognition(pat, 10);
-    floyd(array, 0, 10);
+    floyd(array, 0, 11);
 }
